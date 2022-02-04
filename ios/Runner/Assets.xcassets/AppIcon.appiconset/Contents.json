@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="94eb480e-199b-49d8-ac2e-701f1150da6d" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="isMigrated" value="true" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="041291198A106720" />
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/page/feed/feedPage.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="123">
+              <caret line="554" column="41" selection-start-line="554" selection-start-column="41" selection-end-line="554" selection-end-column="41" />
+              <folding>
+                <element signature="e#0#17#0" expanded="true" />
+                <element signature="e#4233#4606#0" />
+                <element signature="e#5326#6419#0" />
+                <element signature="e#6454#7542#0" />
+                <element signature="e#7577#9437#0" />
+                <element signature="e#9474#9821#0" />
+                <element signature="e#19151#19484#0" />
+                <element signature="e#19525#20992#0" />
+                <element signature="e#21027#21360#0" />
+                <element signature="e#21393#22392#0" />
+                <element signature="e#22426#23329#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lib/page/feed/composePost/composePost.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="139">
+              <caret line="296" column="38" selection-start-line="296" selection-start-column="38" selection-end-line="296" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/page/profile/EditProfilePage.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="13

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "370730420829",
+    "project_id": "utravel-app",
+    "storage_bucket": "utravel-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:370730420829:android:bcf6427b5605b19774dbb4",
+        "android_client_info": {
+          "package_name": "com.example.streambox"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "370730420829-m394m464g591fgirf1ph1nc7d9bnj9p8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXVJQ7gZYyRtWqlhkSr9snaa70vKhr38I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "370730420829-m394m464g591fgirf1ph1nc7d9bnj9p8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
