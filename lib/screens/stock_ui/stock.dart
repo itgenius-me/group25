@@ -8,19 +8,26 @@ import 'package:streambox/providers/egg_prov.dart';
 import 'package:streambox/widgets/stock_card.dart';
 import 'package:provider/provider.dart';
 import 'package:intl/intl.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+
 
 class Stock extends StatefulWidget {
+
+          
+
   @override
   _StockState createState() => _StockState();
 }
 
 class _StockState extends State<Stock> {
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   Future<void> updateStockUI() async {
     DocumentReference documentRefEggs =
-        store.collection('stock_eggs').doc(auth.currentUser.uid);
+        _firestore.collection('stock_eggs').doc(auth.currentUser.uid);
     DocumentReference documentRefChickens =
-        store.collection('stock_chickens').doc(auth.currentUser.uid);
-    store.runTransaction((transaction) async {
+        _firestore.collection('stock_chickens').doc(auth.currentUser.uid);
+    _firestore.runTransaction((transaction) async {
       DocumentSnapshot<Map> eggSnapshot =
           await transaction.get(documentRefEggs);
       DocumentSnapshot<Map> chickenSnapshot =

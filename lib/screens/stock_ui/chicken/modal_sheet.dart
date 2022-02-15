@@ -13,6 +13,8 @@ import 'package:streambox/widgets/styles.dart';
 import 'package:provider/provider.dart';
 
 class BatchSheet extends StatelessWidget {
+    final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -181,10 +183,10 @@ class BatchSheet extends StatelessWidget {
                             int batchCount =
                                 Provider.of<BirdsProv>(context, listen: false)
                                     .batchCount;
-                            DocumentReference documentReference = store
+                            DocumentReference documentReference = _firestore
                                 .collection('stock_chickens')
                                 .doc(auth.currentUser.uid);
-                            store.runTransaction(
+                            _firestore.runTransaction(
                               (transaction) async {
                                 DocumentSnapshot snapshot =
                                     await transaction.get(documentReference);

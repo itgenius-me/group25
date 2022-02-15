@@ -12,9 +12,14 @@ import 'package:streambox/widgets/styles.dart';
 import 'package:provider/provider.dart';
 import 'package:streambox/providers/egg_prov.dart';
 import 'package:streambox/config/firebase.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 
 // TODO: sort egg stock count by month of collection
 class EggReport extends StatelessWidget {
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -147,10 +152,10 @@ class EggReport extends StatelessWidget {
                       Expanded(
                         child: GestureDetector(
                           onTap: () async {
-                            DocumentReference documentReference = store
+                            DocumentReference documentReference = _firestore
                                 .collection('stock_eggs')
                                 .doc(auth.currentUser.uid);
-                            store.runTransaction((transaction) async {
+                            _firestore.runTransaction((transaction) async {
                               DocumentSnapshot<Map> snapshot =
                                   await transaction.get(documentReference);
                               // check if user doc exist

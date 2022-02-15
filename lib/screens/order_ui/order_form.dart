@@ -12,12 +12,16 @@ import 'package:streambox/widgets/inputfield.dart';
 import 'package:streambox/widgets/product_picker.dart';
 import 'package:streambox/widgets/styles.dart';
 import 'package:streambox/widgets/toast.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'package:provider/provider.dart';
 
 import '../../config/enumvals.dart';
 
 class OrderForm extends StatelessWidget {
   final GlobalKey<FormState> _orderFormKey = GlobalKey<FormState>();
+    final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -116,7 +120,7 @@ class OrderForm extends StatelessWidget {
                       top: 5,
                     ),
                     child: Text(
-                      "Crate of egg price ~ ₦${prefs.getDouble("crateOfEggUnitPrice")}",
+                      "Crate of egg price ~ UGX${prefs.getDouble("crateOfEggUnitPrice")}",
                       style: TextStyle(
                         fontWeight: FontWeight.bold, color: Colors.grey,
                         //fontSize: 15,
@@ -129,7 +133,7 @@ class OrderForm extends StatelessWidget {
                       Padding(
                         padding: EdgeInsets.only(left: 20, bottom: 10),
                         child: Text(
-                          "Price of chicken ~ ₦${prefs.getDouble("chickenUnitPrice")}",
+                          "Price of chicken ~ UGX${prefs.getDouble("chickenUnitPrice")}",
                           style: TextStyle(
                             fontWeight: FontWeight.bold, color: Colors.grey,
                             //fontSize: 15,
@@ -165,7 +169,7 @@ class OrderForm extends StatelessWidget {
                   Padding(
                     padding: EdgeInsets.only(left: 20, bottom: 10),
                     child: Text(
-                      "Total Price = ₦ ${orderData.totalPrice}",
+                      "Total Price = UGX ${orderData.totalPrice}",
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 20,
@@ -177,7 +181,7 @@ class OrderForm extends StatelessWidget {
                     child: GestureDetector(
                       onTap: () async {
                         if (_orderFormKey.currentState.validate()) {
-                          DocumentReference docRef = store
+                          DocumentReference docRef =_firestore
                               .collection("orders")
                               .doc(auth.currentUser.uid);
                           String orderID = generateID();

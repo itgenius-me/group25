@@ -8,6 +8,8 @@ import 'package:streambox/widgets/add_button.dart';
 import 'package:streambox/widgets/orders_card.dart';
 
 class OrderView extends StatelessWidget {
+    final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,7 +39,7 @@ class OrderView extends StatelessWidget {
             ),
           ),
           StreamBuilder<QuerySnapshot<Map>>(
-              stream: store.collection("orders").snapshots(),
+              stream: _firestore.collection("orders").snapshots(),
               builder: (context, snapshot) {
                 List<Widget> distributorOrders = [];
                 if (snapshot.hasData) {

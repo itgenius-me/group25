@@ -12,6 +12,8 @@ import '../../widgets/orders_card.dart';
 
 class OrderTabView extends StatelessWidget {
   final OrderStatus orderStatus;
+      final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+
   final String buttonText;
   final UserType user;
   OrderTabView({
@@ -52,7 +54,7 @@ class OrderTabView extends StatelessWidget {
                       ),
                     ),
               StreamBuilder<DocumentSnapshot<Map>>(
-                stream: store
+                stream: _firestore
                     .collection("orders")
                     .doc(auth.currentUser.uid)
                     .snapshots(),

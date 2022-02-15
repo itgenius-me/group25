@@ -11,12 +11,15 @@ import 'package:streambox/screens/onboarding_ui/signup.dart';
 import 'package:streambox/widgets/inputfield.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:streambox/widgets/toast.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:provider/provider.dart';
 
 import '../../config/firebase.dart';
 
 class Login extends StatelessWidget {
   final GlobalKey<FormState> _signinFormkey = GlobalKey<FormState>();
+    final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -72,7 +75,7 @@ class Login extends StatelessWidget {
                                 password: user.password,
                               );
                               if (_user != null) {
-                                var docSnapshot = await store
+                                var docSnapshot = await _firestore
                                     .collection("users")
                                     .doc(_user.user.uid)
                                     .get();

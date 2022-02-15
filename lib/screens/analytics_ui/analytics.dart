@@ -4,12 +4,18 @@ import 'package:flutter/material.dart';
 import 'package:streambox/config/firebase.dart';
 import 'package:streambox/screens/analytics_ui/chart.dart';
 
+
 class Analytics extends StatelessWidget {
+
+        final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+
   @override
+
+
   Widget build(BuildContext context) {
     return StreamBuilder<DocumentSnapshot>(
       stream:
-          store.collection("stock_eggs").doc(auth.currentUser.uid).snapshots(),
+          _firestore.collection("stock_eggs").doc(auth.currentUser.uid).snapshots(),
       builder: (context, snapshot) {
         List<FlSpot> totalEggsData = [];
         List<FlSpot> goodEggsData = [];

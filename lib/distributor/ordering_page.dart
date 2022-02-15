@@ -13,6 +13,8 @@ import 'package:streambox/widgets/toast.dart';
 import 'package:provider/provider.dart';
 
 class OrderingPage extends StatelessWidget {
+    final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -40,7 +42,7 @@ class OrderingPage extends StatelessWidget {
               ),
               SizedBox(height: 10),
               StreamBuilder<QuerySnapshot>(
-                stream: store.collection("farmers").snapshots(),
+                stream: _firestore.collection("farmers").snapshots(),
                 builder: (context, snapshot) {
                   Map<String, Map> allFarmInfo = {};
                   List<String> farmNames = [];
@@ -99,12 +101,12 @@ class OrderingPage extends StatelessWidget {
                           ),
                           SizedBox(height: 5),
                           Text(
-                            "Chicken Unit Price: ₦${orderData.chickenPrice}",
+                            "Chicken Unit Price: UGX${orderData.chickenPrice}",
                             style: TextStyle(fontWeight: FontWeight.bold),
                           ),
                           SizedBox(height: 5),
                           Text(
-                            "Crate of Egg Unit Price: ₦${orderData.crateOfEggPrice}",
+                            "Crate of Egg Unit Price: UGX${orderData.crateOfEggPrice}",
                             style: TextStyle(fontWeight: FontWeight.bold),
                           ),
                           SizedBox(height: 10),
@@ -160,7 +162,7 @@ class OrderingPage extends StatelessWidget {
                           ),
                           SizedBox(height: 10),
                           Text(
-                            "Total Price = ₦${orderData.totalPrice}",
+                            "Total Price = UGX${orderData.totalPrice}",
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 18,
@@ -193,8 +195,8 @@ class OrderingPage extends StatelessWidget {
                                       allFarmInfo[orderData.farmName]["userId"];
                                   print("ID: $farmID");
                                   DocumentReference docRef =
-                                      store.collection("orders").doc(farmID);
-                                  DocumentReference userDocRef = store
+                                      _firestore.collection("orders").doc(farmID);
+                                  DocumentReference userDocRef = _firestore
                                       .collection("users")
                                       .doc(auth.currentUser.uid);
                                   DocumentSnapshot userData =

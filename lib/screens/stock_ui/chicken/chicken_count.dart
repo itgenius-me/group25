@@ -11,8 +11,12 @@ import 'package:streambox/widgets/stock_fields.dart';
 import 'package:streambox/widgets/styles.dart';
 import 'package:streambox/widgets/toast.dart';
 import 'package:provider/provider.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 
 class ChickenCount extends StatelessWidget {
+    final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+
   final String name;
   final String birdType;
   final int quantity;
@@ -167,7 +171,7 @@ class ChickenCount extends StatelessWidget {
                           child: GestureDetector(
                             onTap: () async {
                               if (_chickenCountkey.currentState.validate()) {
-                                DocumentSnapshot<Map> data = await store
+                                DocumentSnapshot<Map> data = await _firestore
                                     .collection("stock_chickens")
                                     .doc(auth.currentUser.uid)
                                     .get();

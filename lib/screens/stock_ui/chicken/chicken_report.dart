@@ -10,6 +10,8 @@ import 'package:provider/provider.dart';
 import 'chicken_count.dart';
 
 class ChickenReport extends StatelessWidget {
+    final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -48,7 +50,7 @@ class ChickenReport extends StatelessWidget {
               ],
             ),
             StreamBuilder<DocumentSnapshot<Map>>(
-              stream: store
+              stream: _firestore
                   .collection("stock_chickens")
                   .doc(auth.currentUser.uid)
                   .snapshots(),

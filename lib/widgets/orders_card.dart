@@ -5,8 +5,12 @@ import 'package:streambox/config/firebase.dart';
 import 'package:streambox/widgets/action_button.dart';
 import 'package:streambox/widgets/styles.dart';
 import 'package:streambox/widgets/toast.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 
 class OrderCard extends StatelessWidget {
+    final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+
   final String status;
   final String name; // of distributore
   final int productCount;
@@ -76,7 +80,7 @@ class OrderCard extends StatelessWidget {
                             style: orderHeader,
                           ),
                           Text(
-                            "Unit Price (₦)",
+                            "Unit Price (UGX)",
                             style: orderHeader,
                           ),
                         ],
@@ -150,7 +154,7 @@ class OrderCard extends StatelessWidget {
                         padding:
                             EdgeInsets.symmetric(horizontal: 12, vertical: 20),
                         child: Text(
-                          "Total Price = ₦$totalPrice",
+                          "Total Price = UGX$totalPrice",
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 18,
@@ -164,7 +168,7 @@ class OrderCard extends StatelessWidget {
                               Expanded(
                                 child: GestureDetector(
                                   onTap: () async {
-                                    await store
+                                    await _firestore
                                         .collection("orders")
                                         .doc(auth.currentUser.uid)
                                         .update({
@@ -189,7 +193,7 @@ class OrderCard extends StatelessWidget {
                               Expanded(
                                 child: GestureDetector(
                                   onTap: () async {
-                                    await store
+                                    await _firestore
                                         .collection("orders")
                                         .doc(auth.currentUser.uid)
                                         .update({
