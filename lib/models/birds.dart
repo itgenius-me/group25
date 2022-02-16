@@ -11,6 +11,7 @@ class Birds {
   String comment;
   int batchCount;
   int bacthesCounted;
+  int monthdays;
 
   Birds({
     this.batchName = "",
