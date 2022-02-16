@@ -69,7 +69,7 @@ class AccountScreen extends StatelessWidget {
           ),
           AccountCard(
             title: "Sign Out",
-            hintText: "Log off from your account",
+            hintText: "Log out from your account",
             icon: FluentIcons.sign_out_20_regular,
             function: () {
               Alert(
